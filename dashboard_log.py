@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import time
 from datetime import datetime, timedelta
-#from st_tabs import TabBar
+from st_tabs import TabBar
 
 
 st.set_page_config(layout="wide")
@@ -12,7 +12,7 @@ st.set_page_config(layout="wide")
 for i in range(3):
     st.columns(1)
 
-#component1=  TabBar(tabs=['메인화면','CCTV','CCTV화면'],default=0,background = "#000000",color="#FFFFFF",activeColor="blue",fontSize="15px")
+component1=  TabBar(tabs=['메인화면','CCTV','CCTV화면'],default=0,background = "#000000",color="#FFFFFF",activeColor="blue",fontSize="15px")
 tab1,tab2,tab3 = st.tabs(['메인화면','CCTV','CCTV화면'])
 with tab1:
 #if (component1 == 0):
