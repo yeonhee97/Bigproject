@@ -13,9 +13,9 @@ for i in range(3):
     st.columns(1)
 
 component1=  TabBar(tabs=['메인화면','CCTV','CCTV화면'],default=0,background = "#000000",color="#FFFFFF",activeColor="blue",fontSize="15px")
-tab1,tab2,tab3 = st.tabs(['메인화면','CCTV','CCTV화면'])
-with tab1:
-#if (component1 == 0):
+#tab1,tab2,tab3 = st.tabs(['메인화면','CCTV','CCTV화면'])
+#with tab1:
+if (component1 == 0):
     st.markdown("""
     <style>
     
@@ -1171,8 +1171,8 @@ with tab1:
 ########################################################################################
 ########################################################################################
 
-#elif (component1 == 1):
-with tab2:
+elif (component1 == 1):
+#with tab2:
     st.markdown(
         """
         <style>
@@ -1537,8 +1537,8 @@ with tab2:
 ################################################################
 #################################################################
 
-with tab3:
-#else:   
+#with tab3:
+else:   
 
     st.markdown(
         """
