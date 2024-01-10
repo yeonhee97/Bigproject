@@ -1,3 +1,4 @@
+%%writefile dashboard_log.py
 
 import streamlit as st
 import pydeck as pdk
@@ -5,32 +6,36 @@ import numpy as np
 import pandas as pd
 import time
 from datetime import datetime, timedelta
-
+from st_tabs import TabBar
 
 st.set_page_config(layout="wide")
 
-tab1, tab2, tab3 = st.tabs(['메인화면','작업현황','기상상태'])
+col1 = st.columns(1)
+col2 = st.columns(1)
+component1=  TabBar(tabs=['메인화면','작업현황','기상상태'],default=0,background = "#000000",color="#FFFFFF",
+                    activeColor="blue",fontSize="15px")
 
-with tab1:
-    st.markdown("""
-    <style>
+#with tab1:
+if (component1 == 0):
+#     st.markdown("""
+#     <style>
     
-        .stTabs [data-baseweb="tab-list"] {
-            gap: 5px;
-        }
+#         .stTabs [data-baseweb="tab-list"] {
+#             gap: 5px;
+#         }
     
-        .stTabs [data-baseweb="tab"] {
-            height: 50px;
-            margin : 0px;
-            font-color : #FFFFFF;
-            background-color: #F0F2F6;
-        }
+#         .stTabs [data-baseweb="tab"] {
+#             height: 50px;
+#             margin : 0px;
+#             font-color : #FFFFFF;
+#             background-color: #F0F2F6;
+#         }
     
-        .stTabs [aria-selected="true"] {
-            background-color: #000000;
-        }
+#         .stTabs [aria-selected="true"] {
+#             background-color: #000000;
+#         }
 
-    </style>""", unsafe_allow_html=True)
+#     </style>""", unsafe_allow_html=True)
 
 
     def load_cctv_content():
@@ -71,53 +76,6 @@ with tab1:
             """,
             unsafe_allow_html=True
         )
-
-
-        # def display_fullscreen_alert():
-        #     # 경고창을 위한 컨테이너 생성
-        #     alert_container = st.empty()
-
-        #     # 경고 메시지 표시
-        #     with alert_container:
-        #         st.markdown(
-        #             """
-        #             <style>
-        #             .overlay {
-        #                 position: fixed;
-        #                 display: flex;
-        #                 justify-content: center;
-        #                 align-items: center;
-        #                 top: 0;
-        #                 left: 0;
-        #                 right: 0;
-        #                 bottom: 0;
-        #                 background-color: rgba(0,0,0,0.5);
-        #                 z-index: 999;
-        #                 animation: blinker 3s linear 3;
-        #             }
-        #             @keyframes blinker {
-        #                 50% { opacity: 0; }
-        #             }
-        #             .alert-box {
-        #                 background-color: #ffcc00;
-        #                 color: black;
-        #                 padding: 20px;
-        #                 border-radius: 5px;
-        #                 box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        #                 text-align: center;
-        #                 max-width: 500px;
-        #             }
-        #             </style>
-        #             <div class="overlay">
-        #                 <div class="alert-box">
-        #                     <strong>경고:</strong> 주의가 필요한 상황이 감지되었습니다.
-        #                 </div>
-        #             </div>
-        #             """,
-        #             unsafe_allow_html=True
-        #         )
-        #     time.sleep(7)  # 7초간 대기
-        #     alert_container.empty()  # 경고창 컨테이너 비우기
 
 
 
@@ -207,108 +165,10 @@ with tab1:
         """, unsafe_allow_html=True)
 
 
-        #------------------------------------------------------------------------------------------------
 
-    #     # 하단 CCTV 피드
-    #     slider_spacing = "3px"
-    #     # 스타일 정의
-    #     st.markdown("""
-    #         <style>
-    #             .cctv-container {
-    #                 background-color: #333333;
-    #                 border: 2px solid #AAAAAA; /* 초기 테두리는 흰색 */
-    #                 border-radius: 10px;
-    #                 margin-bottom: 20px;
-    #                 overflow: hidden;
-    #                 display: flex;
-    #             }
-    #             .cctv-controls, .cctv-feed {
-    #                 padding: 10px;
-    #                 color: white;
-    #             }
-    #             .cctv-controls {
-    #                 flex: 2; /* 1:5 비율의 좌측 부분 */
-    #             }
-    #             .cctv-feed {
-    #                 flex: 6; /* 1:5 비율의 우측 부분 */
-    #                 width: 100%;
-    #                 height: auto;
-    #             }
 
-    #             /* 제목 글자 크기를 조정합니다. */
-    #             .stSubheader, .stMarkdown {
-    #                 font-size: 10px !important;
-    #                 color: white !important;
-    #             }
-    #             /* 슬라이더 라벨의 글씨 색상을 변경합니다. */
-    #             .stSlider label {
-    #                 color: white !important;
-    #                 font-size: 10px
-    #             }
-    #             /* 슬라이더 핸들과 트랙의 색상을 변경할 수 있습니다. */
-    #             .st-bd, .st-eg {
-    #                 background-color: #FF4B4B !important;
-    #             }
-    #             /* 슬라이더 간격을 줄입니다. */
-    #             .stSlider {
-    #                 margin-bottom: 3px !important;
-    #             }
-    #             /* 슬라이더 값 표시를 숨깁니다. */
-    #             .stSlider .st-ef {
-    #                 visibility: hidden;
-    #             }
-    #             /* 컬럼의 최소 높이 설정 */
-    #             .st-cb, .st-cc {
-    #                 min-height: 25px;
-    #             }
-    #             .cctv-controls div {
-    #                 margin-bottom: 10px; /* 각 컨트롤 요소의 하단 여백 */
-    #             }
-
-    #             .cctv-controls label {
-    #                 display: block; /* 라벨을 블록 요소로 만들어 줄 바꿈 */
-    #                 color: white;
-    #                 font-size: 14px; /* 라벨의 글자 크기 */
-    #                 margin-bottom: 5px; /* 라벨과 슬라이더 사이의 여백 */
-    #             }
-
-    #             .cctv-controls input[type=range] {
-    #                 width: 100%; /* 슬라이더의 길이 */
-    #             }
-    #         </style>
-    #     """,
-    #         unsafe_allow_html=True
-    #     )
-
-    #     # 각 CCTV 블록을 만드는 함수
-    #     st.markdown(f"""
-    #         <div class="cctv-container">
-    #             <div class="cctv-controls">
-    #                 <h2 style="font-size: 18px; margin-bottom: 5px; color: white;">Control Panel</h2>
-    #                 <div>
-    #                     <label for="zoom">Zoom</label>
-    #                     <input type="range" id="zoom" min="0" max="10" value="8">
-    #                 </div>
-    #                 <div>
-    #                     <label for="focus">Focus</label>
-    #                     <input type="range" id="focus" min="0" max="100" value="40">
-    #                 </div>
-    #                 <div>
-    #                     <label for="step">Step</label>
-    #                     <input type="range" id="step" min="0" max="10" value="6">
-    #                 </div>
-    #             </div>
-    #             <div class="cctv-feed">
-    #                 <h2 style="font-size: 18px; margin-bottom: 5px; color: white;">CCTV Feed</h2>
-    #                 <video autoplay loop controls style="width: 100%; height: auto; max-height: 100%;">
-    #                     <source src="http://localhost:8888/files/bigproject_dashboard/video2.mp4?_xsrf=2%7C6bfb3a33%7Cb6175f51107257db932bf3d38fc7a0fb%7C1704250333" type="video/mp4">
-    #                 </video>
-    #             </div>
-    #         </div>
-    #         """, unsafe_allow_html=True)
-
-        # time.sleep(10)
-        # display_fullscreen_alert()
+#---------------------------------------------------------------------------------------------
+  
 
 
 
@@ -625,7 +485,7 @@ with tab1:
     st.markdown("""
         <div class="header">
             <div class="logo">
-                <img src="http://localhost:8888/files/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?_xsrf=2%7C38a3eff7%7Cbae409044ca25c4371ea3071b3fc03fb%7C1703815790g" height="40"/>
+                <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?_xsrf=2%7C0e3e6c52%7C422d2d71a416b56c278b7c7591d926ef%7C1704801015" height="40"/>
                 <div class="logo-text">수도권 철도 차량기지 관제센터</div>
             </div>
             <div class="search-box">
@@ -803,7 +663,7 @@ with tab1:
                     <div class="train-section">
                         <div class="train-title">접근차량</div>
                         <div class="train-number">열차 번호: KTX-133</div>
-                        <img src="http://localhost:8888/files/bigproject_dashboard/%EA%B8%B0%EC%B0%A8%EC%B5%9C%EC%A2%85.png?_xsrf=2%7C38a3eff7%7Cbae409044ca25c4371ea3071b3fc03fb%7C1703815790" alt="Train Image" style="width: 100%; height: auto; border-radius: 5px; margin-top: 10px;"/> <!-- 이미지 경로 확인 필요 -->
+                        <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EA%B8%B0%EC%B0%A8%EC%B5%9C%EC%A2%85.png?_xsrf=2%7C0e3e6c52%7C422d2d71a416b56c278b7c7591d926ef%7C1704801015" alt="Train Image" style="width: 100%; height: auto; border-radius: 5px; margin-top: 10px;"/> <!-- 이미지 경로 확인 필요 -->
                         <div class="train-metrics">
                             <div class="metric">
                                 <div class="metric-title">남은 시간</div>
@@ -1278,7 +1138,7 @@ with tab1:
                                 <div class="card-subtitle">예상 소요 시간 |</div>
                                 <div class="card-subtitle">2024.01.12 13:00 - 15:30</div>
                             </div>
-                            <img src="http://localhost:8888/files/bigproject_dashboard/%EC%84%A0%EB%A1%9C.png?_xsrf=2%7C38a3eff7%7Cbae409044ca25c4371ea3071b3fc03fb%7C1703815790" alt="Icon" class="card-icon">
+                            <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EC%84%A0%EB%A1%9C.png?_xsrf=2%7C0e3e6c52%7C422d2d71a416b56c278b7c7591d926ef%7C1704801015" alt="Icon" class="card-icon">
                         </div>
                         <!-- 두 번째 카드 -->
                         <div class="card">
@@ -1287,7 +1147,7 @@ with tab1:
                                 <div class="card-subtitle">예상 소요 시간 |</div>
                                 <div class="card-subtitle">2024.01.12 17:00 - 19:00</div>
                             </div>
-                            <img src="http://localhost:8888/files/bigproject_dashboard/%EC%A0%84%EA%B8%B0.png?_xsrf=2%7C38a3eff7%7Cbae409044ca25c4371ea3071b3fc03fb%7C1703815790" alt="Icon" class="card-icon">
+                            <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EC%A0%84%EA%B8%B0.png?_xsrf=2%7C0e3e6c52%7C422d2d71a416b56c278b7c7591d926ef%7C1704801015" alt="Icon" class="card-icon">
                         </div>
                         <!-- 세 번째 카드 -->
                         <div class="card">
@@ -1296,7 +1156,7 @@ with tab1:
                                 <div class="card-subtitle">예상 소요 시간 |</div>
                                 <div class="card-subtitle">2024.01.12 19:30 - 21:30</div>
                             </div>
-                            <img src="http://localhost:8888/files/bigproject_dashboard/%EC%B0%A8%EB%9F%89.png?_xsrf=2%7C38a3eff7%7Cbae409044ca25c4371ea3071b3fc03fb%7C1703815790" alt="Icon" class="card-icon">
+                            <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EC%B0%A8%EB%9F%89.png?_xsrf=2%7C0e3e6c52%7C422d2d71a416b56c278b7c7591d926ef%7C1704801015" alt="Icon" class="card-icon">
                         </div>
                     </div>
                     """, unsafe_allow_html=True)
@@ -1312,279 +1172,8 @@ with tab1:
 ########################################################################################
 ########################################################################################
 
-with tab2:
-    
-    st.markdown(
-        """
-        <style>
-        .stApp {
-            background-color: #333333;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True)
-    
-    
-    # 상단바 스타일과 컴포넌트 정의
-    st.markdown("""
-    
-    <style>
-            
-    .header {
-        background-color:black;
-        color: white;
-        padding: 10px 0px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .logo {
-        flex-grow: 2;
-        display: flex;
-        align-items: center;
-    }
-    .logo > img {
-        margin-right: 20px;
-    }
-    
-    .logo-text {
-        display: flex;
-        align-items: center;
-        font-size: 24px; /* 텍스트 크기 증가 */
-        font-weight: bold;
-        margin-right: 20px; /* 오른쪽 여백 추가 */
-        color : #eeeeee;
-    }
-    
-    .search-box {
-        display: flex;
-        justify-content: right;
-    }
-    
-    .search-input {
-        background-color: #999999; /* 검색창 배경색 */
-        color: white; /* 검색창 텍스트 색상 */
-        margin: 0px 10px;
-        padding: 10px 15px; /* 검색창 내부 패딩 */
-        border-radius: 20px; /* 검색창 라운드 값 */
-        border: 1px solid #004165; /* 검색창 테두리 색상 */
-        outline: none; /* 클릭 시 발생하는 아웃라인 제거 */
-    }
-    .search-input::placeholder {
-        color: white; /* 플레이스홀더 텍스트 색상을 흰색으로 설정 */
-        opacity: 1; /* 플레이스홀더 텍스트의 불투명도를 100%로 설정 */
-    }
-    .notifications {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        margin-left: 20px; /* 왼쪽 여백 추가 */
-        font-size: 14px;
-    }
-    .clock {
-        display: flex;
-        align-items: center;
-        margin-left: 20px; /* 왼쪽 여백 추가 */
-        font-size: 18px;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-    
-    
-    # 상단바 컴포넌트
-    st.markdown("""
-    <div class="header">
-        <div class="logo">
-            <img src="http://localhost:8888/files/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?_xsrf=2%7Cccdf4ca1%7Cfa4c9db36c6598195a1c805cc167066d%7C1703818891" height="40"/>
-            <div class="logo-text">CCTV</div>
-        </div>
-        <div class="search-box">
-            <input class="search-input" type="text" placeholder="🔍 차량 번호 입력" />
-            <input class="search-input" type="text" placeholder="🔍 노선, 정류장 입력" />
-        </div>
-        <div class="notifications">
-            🔔 이벤트 12건
-        </div>
-        <div class="clock" id="clock">
-            <!-- 시간 표시 -->
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    
-    
-    # --------------------------------------------------------------------------------------------------
-    
-    # /* 버튼 스타일 */
-    #             .custom-button {
-    #                 margin: 10px;
-    #                 padding: 10px 20px;
-    #                 border: none;
-    #                 background-color: grey;
-    #                 color: white;
-    #                 border-radius: 5px;
-    #                 cursor: pointer;
-    #             } 
-    # st.markdown("""
-    #             <div class="button-container">
-    #                 <button class="custom-button">+</button>
-    #                 <button class="custom-button">-</button>
-    #             </div>
-    #         """, unsafe_allow_html=True)       
-    #------------------------------------------------------------------------------------------------
-    
-    # 하단 CCTV 피드
-    slider_spacing = "3px"
-    
-    # 스타일 정의
-    st.markdown("""
-        <style>
-            .cctv-container {
-                background-color: #333333;
-                border: 2px solid #AAAAAA; /* 초기 테두리는 흰색 */
-                animation: blink 1s linear infinite; /* 애니메이션 적용 */
-                border-radius: 10px;
-                margin-bottom: 20px;
-                overflow: hidden;
-                display: flex;
-            }
-            .cctv-controls, .cctv-feed {
-                padding: 10px;
-                color: white;
-            }
-            .cctv-controls {
-                flex: 1; /* 1:5 비율의 좌측 부분 */
-            }
-            .cctv-feed {
-                flex: 5; /* 1:5 비율의 우측 부분 */
-                width: 100%;
-                height: auto;
-            }
-            
-            /* 제목 글자 크기를 조정합니다. */
-            .stSubheader, .stMarkdown {
-                font-size: 10px !important;
-                color: white !important;
-            }
-            /* 슬라이더 라벨의 글씨 색상을 변경합니다. */
-            .stSlider label {
-                color: white !important;
-            }
-            /* 슬라이더 핸들과 트랙의 색상을 변경할 수 있습니다. */
-            .st-bd, .st-eg {
-                background-color: #FF4B4B !important;
-            }
-            /* 슬라이더 간격을 줄입니다. */
-            .stSlider {
-                margin-bottom: 3px !important;
-            }
-            /* 슬라이더 값 표시를 숨깁니다. */
-            .stSlider .st-ef {
-                visibility: hidden;
-            }
-            /* 컬럼의 최소 높이 설정 */
-            .st-cb, .st-cc {
-                min-height: 25px;
-            }
-        </style>
-    """,
-        unsafe_allow_html=True
-    )
-    
-    # 각 CCTV 블록을 만드는 함수
-    def create_cctv_block(cctv_number, video_url):
-        cctv_id = f"cctv-{cctv_number}"
-        st.markdown(f"""
-        <div class="cctv-container">
-            <div class="cctv-controls">
-                <h2 style="font-size: 15px; margin-bottom: 5px; color: white;">Control Panel {cctv_number}</h2>
-                <label for="zoom_{cctv_number}">Zoom</label>
-                <input type="range" id="zoom_{cctv_number}" min="0" max="10" value="5">
-                <label for="focus_{cctv_number}">Focus</label>
-                <input type="range" id="focus_{cctv_number}" min="0" max="100" value="50">
-                <label for="step_{cctv_number}">Step</label>
-                <input type="range" id="step_{cctv_number}" min="0" max="10" value="1">
-            </div>
-            <div class="cctv-feed">
-                <h2 style="font-size: 14px; margin-bottom: 5px; color: white;">CCTV Feed {cctv_number}</h2>
-                <video autoplay loop controls style="width: 100%; height: auto; max-height: 100%;">
-                    <source src="{video_url}" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    def create_cctv_block2(cctv_number, video_url):
-        cctv_id = f"cctv-{cctv_number}"
-        st.markdown(f"""
-        <div class="cctv-container">
-            <div class="cctv-controls">
-                <h2 style="font-size: 15px; margin-bottom: 5px; color: white;">Control Panel {cctv_number}</h2>
-                <label for="zoom_{cctv_number}">Zoom</label>
-                <input type="range" id="zoom_{cctv_number}" min="0" max="10" value="5">
-                <label for="focus_{cctv_number}">Focus</label>
-                <input type="range" id="focus_{cctv_number}" min="0" max="100" value="50">
-                <label for="step_{cctv_number}">Step</label>
-                <input type="range" id="step_{cctv_number}" min="0" max="10" value="1">
-            </div>
-            <div class="cctv-feed">
-                <h2 style="font-size: 14px; margin-bottom: 5px; color: white;">CCTV Feed {cctv_number}</h2>
-                <video autoplay loop controls style="width: 100%; height: auto; max-height: 100%;">
-                    <source src="{video_url}" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    # CCTV 피드와 컨트롤 패널 레이아웃 구성
-    cctv_col1, cctv_col2 = st.columns(2)
-    with cctv_col1:
-        create_cctv_block(1, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV1.mp4?_xsrf=2%7Cb2ce49b9%7C6860786ab7b72b610330d4f1629c44fb%7C1704249121')
-    with cctv_col2:
-        create_cctv_block(2, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV2.mp4?_xsrf=2%7Cb2ce49b9%7C6860786ab7b72b610330d4f1629c44fb%7C1704249121')
-    
-    
-    # 두 번째 행의 CCTV 피드들
-    cctv_col3, cctv_col4 = st.columns(2)
-    with cctv_col3:
-        create_cctv_block(3, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV3.mp4?_xsrf=2%7Cb2ce49b9%7C6860786ab7b72b610330d4f1629c44fb%7C1704249121')
-    with cctv_col4:
-        create_cctv_block2(4, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV4.mp4?_xsrf=2%7Cb2ce49b9%7C6860786ab7b72b610330d4f1629c44fb%7C1704249121')
-        st.markdown("""
-        <style>
-            .cctv-container {
-                background-color: #333333;
-                border: 2px solid #FFFF00; /* 초기 테두리는 흰색 */
-                animation: blink 1s linear infinite; /* 애니메이션 적용 */
-                border-radius: 10px;
-                margin-bottom: 20px;
-                overflow: hidden;
-                display: flex;
-            }
-             @keyframes blink {
-                0% {
-                    border-color: #FFFF00; /* 시작 색상: 노란색 */
-                }
-                50% {
-                    border-color: transparent; /* 50% 지점: 테두리 투명화 */
-                }
-                100% {
-                    border-color: #FFFF00; /* 종료 색상: 노란색 */
-                }
-            }
-            </style>
-            """, unsafe_allow_html=True)
+elif (component1 == 1):
 
-        
-################################################################
-#################################################################
-################################################################
-#################################################################
-
-with tab3:
-    
-# 넓은 레이아웃 설정
-    
     st.markdown(
         """
         <style>
@@ -1598,12 +1187,12 @@ with tab3:
                 padding-left: 1rem; /* 왼쪽 패딩 */
                 padding-bottom: 1rem; /* 아래 패딩 */
             }
-            
+
             /* 스트림릿의 칼럼 사이 간격 조정 */
             .st-cx {
                 margin: 0; /* 외부 여백 제거 */
             }
-            
+
             /* 칼럼 내부의 패딩 조정 */
             .st-cc {
                 padding:0.5rem; /* 좌우 패딩 */
@@ -1621,61 +1210,13 @@ with tab3:
         """,
         unsafe_allow_html=True
     )
-    
-    
-    def display_fullscreen_alert():
-        # 경고창을 위한 컨테이너 생성
-        alert_container = st.empty()
-    
-        # 경고 메시지 표시
-        with alert_container:
-            st.markdown(
-                """
-                <style>
-                .overlay {
-                    position: fixed;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background-color: rgba(0,0,0,0.5);
-                    z-index: 999;
-                    animation: blinker 3s linear 3;
-                }
-                @keyframes blinker {
-                    50% { opacity: 0; }
-                }
-                .alert-box {
-                    background-color: #ffcc00;
-                    color: black;
-                    padding: 20px;
-                    border-radius: 5px;
-                    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-                    text-align: center;
-                    max-width: 500px;
-                }
-                </style>
-                <div class="overlay">
-                    <div class="alert-box">
-                        <strong>경고:</strong> 주의가 필요한 상황이 감지되었습니다.
-                    </div>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-        time.sleep(7)  # 7초간 대기
-        alert_container.empty()  # 경고창 컨테이너 비우기
-    
-    
-    
+
+
     # 상단바 스타일과 컴포넌트 정의
     st.markdown("""
-    
+
     <style>
-            
+
     .header {
         background-color:black;
         color: white;
@@ -1692,7 +1233,7 @@ with tab3:
     .logo > img {
         margin-right: 20px;
     }
-    
+
     .logo-text {
         display: flex;
         align-items: center;
@@ -1701,12 +1242,12 @@ with tab3:
         margin-right: 20px; /* 오른쪽 여백 추가 */
         color : #eeeeee;
     }
-    
+
     .search-box {
         display: flex;
         justify-content: right;
     }
-    
+
     .search-input {
         background-color: #999999; /* 검색창 배경색 */
         color: white; /* 검색창 텍스트 색상 */
@@ -1735,12 +1276,12 @@ with tab3:
     }
     </style>
     """, unsafe_allow_html=True)
-    
+
     # 상단바 컴포넌트
     st.markdown("""
     <div class="header">
         <div class="logo">
-            <img src="http://localhost:8888/files/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?_xsrf=2%7Cccdf4ca1%7Cfa4c9db36c6598195a1c805cc167066d%7C1703818891" height="40"/>
+            <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?_xsrf=2%7Ce9d7a21b%7C50c7ca14a3dd56ebb3a431afcbbaa867%7C1704802869" height="40"/>
             <div class="logo-text">CCTV</div>
         </div>
         <div class="search-box">
@@ -1755,10 +1296,425 @@ with tab3:
         </div>
     </div>
     """, unsafe_allow_html=True)
-    
-    
+
+
+
+    # --------------------------------------------------------------------------------------------------
+
+    # /* 버튼 스타일 */
+    #             .custom-button {
+    #                 margin: 10px;
+    #                 padding: 10px 20px;
+    #                 border: none;
+    #                 background-color: grey;
+    #                 color: white;
+    #                 border-radius: 5px;
+    #                 cursor: pointer;
+    #             } 
+    # st.markdown("""
+    #             <div class="button-container">
+    #                 <button class="custom-button">+</button>
+    #                 <button class="custom-button">-</button>
+    #             </div>
+    #         """, unsafe_allow_html=True)       
     #------------------------------------------------------------------------------------------------
-    
+    def add_custom_css():
+        st.markdown("""
+        <style>
+        .tab-button {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border: none;
+            margin: 0px; /* Remove space between buttons */
+            cursor: pointer;
+            width: 100%; /* Set the width of buttons to be equal */
+        }
+        .tab-button:hover {
+            background-color: #555;
+        }
+        /* Remove gap between columns */
+        .column {
+            padding: 0px !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
+    add_custom_css()
+
+    # 화면 분할 설정 - 왼쪽에 탭, 오른쪽에 파일 내용
+    left_column, right_column = st.columns([1, 18])
+
+    # 왼쪽 컬럼에 탭 버튼 배치
+    with left_column:
+        tab_buttons = {
+            '메인': '메인',
+            'CCTV': 'CCTV',
+            '분석': '분석'
+        }
+        for tab_key, tab_value in tab_buttons.items():
+            button_html = f"<button class='tab-button' onclick='window.location.href=\"?current_tab={tab_key}\"'>{tab_value}</button>"
+            st.markdown(button_html, unsafe_allow_html=True)
+
+
+
+
+    # 오른쪽 컬럼에 파일 내용 표시
+    with right_column:
+    # 넓은 레이아웃 설정
+
+
+
+        # 하단 CCTV 피드
+        slider_spacing = "3px"
+
+        st.markdown("""
+            <style>
+                .cctv-container {
+                    background-color: #333333;
+                    border: 2px solid #FFFFFF; /* 초기 테두리는 흰색 */
+                    border-radius: 10px;
+                    margin-bottom: 20px;
+                    overflow: hidden;
+                    display: flex;
+                }
+
+                .cctv-container_alert {
+                    background-color: #333333;
+
+                    border: 2px solid #FFFFFF; /* 초기 테두리 색상: 흰색 */
+                    animation: blink 1s linear infinite; /* 애니메이션 적용 */
+                    animation-delay: 10s; /* 10초 후 애니메이션 시작 */
+                    border-radius: 10px;
+                    margin-bottom: 20px;
+                    overflow: hidden;
+                    display: flex;
+                }
+                @keyframes blink {
+                    0% {
+                        border-color: #FFFF00; /* 시작 색상: 노란색 */
+                    }
+                    50% {
+                        border-color: transparent; /* 50% 지점: 테두리 투명화 */
+                    }
+                    100% {
+                        border-color: #FFFF00; /* 종료 색상: 노란색 */
+                    }
+                }
+                .blinking-cctv {
+                    animation: blink 1s linear infinite; /* 애니메이션 적용 */
+                }
+
+                }
+                .cctv-controls, .cctv-feed {
+                    padding: 10px;
+                    color: white;
+                }
+                .cctv-controls {
+                    flex: 2; /* 1:5 비율의 좌측 부분 */
+                    padding: 10px;
+                }
+                .cctv-feed {
+                    flex: 6; /* 1:5 비율의 우측 부분 */
+                    width: 100%;
+                    height: auto;
+                }
+
+                /* 제목 글자 크기를 조정합니다. */
+                .stSubheader, .stMarkdown {
+                    font-size: 10px !important;
+                    color: white !important;
+                }
+                /* 슬라이더 라벨의 글씨 색상을 변경합니다. */
+                .stSlider label {
+                    color: white !important;
+                    font-size: 10px
+                }
+                /* 슬라이더 핸들과 트랙의 색상을 변경할 수 있습니다. */
+                .st-bd, .st-eg {
+                    background-color: #FF4B4B !important;
+                }
+                /* 슬라이더 간격을 줄입니다. */
+                .stSlider {
+                    margin-bottom: 3px !important;
+                }
+                /* 슬라이더 값 표시를 숨깁니다. */
+                .stSlider .st-ef {
+                    visibility: hidden;
+                }
+                /* 컬럼의 최소 높이 설정 */
+                .st-cb, .st-cc {
+                    min-height: 25px;
+                }
+                .cctv-controls div {
+                    margin-bottom: 10px; /* 각 컨트롤 요소의 하단 여백 */
+                }
+
+                .cctv-controls label {
+                    display: block; /* 라벨을 블록 요소로 만들어 줄 바꿈 */
+                    color: white;
+                    font-size: 14px; /* 라벨의 글자 크기 */
+                    margin-bottom: 5px; /* 라벨과 슬라이더 사이의 여백 */
+                }
+
+                .cctv-controls input[type=range] {
+                    width: 100%; /* 슬라이더의 길이 */
+                }
+            </style>
+        """,
+            unsafe_allow_html=True
+        )
+
+        # 각 CCTV 블록을 만드는 함수
+        def create_cctv_block(cctv_number, video_url):
+            cctv_id = f"cctv-{cctv_number}"
+            if cctv_number == 4:
+
+                st.markdown(f"""
+                <div class="cctv-container_alert">
+                    <div class="cctv-controls">
+                        <h2 style="font-size: 15px; margin-bottom: 5px; color: white;">Control Panel {cctv_number}</h2>
+                        <label for="zoom_{cctv_number}">Zoom</label>
+                        <input type="range" id="zoom_{cctv_number}" min="0" max="10" value="5">
+                        <label for="focus_{cctv_number}">Focus</label>
+                        <input type="range" id="focus_{cctv_number}" min="0" max="100" value="50">
+                        <label for="step_{cctv_number}">Step</label>
+                        <input type="range" id="step_{cctv_number}" min="0" max="10" value="1">
+                    </div>
+                    <div class="cctv-feed">
+                        <h2 style="font-size: 14px; margin-bottom: 5px; color: white;">CCTV Feed {cctv_number}</h2>
+                        <video autoplay loop controls style="width: 100%; height: auto; max-height: 100%;">
+                            <source src="{video_url}" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+
+            else:
+                st.markdown(f"""
+                <div class="cctv-container">
+                    <div class="cctv-controls">
+                        <h2 style="font-size: 18px; margin-bottom: 5px; color: white;">Control Panel {cctv_number}</h2>
+                        <label for="zoom_{cctv_number}">Zoom</label>
+                        <input type="range" id="zoom_{cctv_number}" min="0" max="10" value="8">
+                        <label for="focus_{cctv_number}">Focus</label>
+                        <input type="range" id="focus_{cctv_number}" min="0" max="100" value="40">
+                        <label for="step_{cctv_number}">Step</label>
+                        <input type="range" id="step_{cctv_number}" min="0" max="10" value="6">
+                    </div>
+                    <div class="cctv-feed">
+                        <h2 style="font-size: 18px; margin-bottom: 5px; color: white;">CCTV Feed {cctv_number}</h2>
+                        <video autoplay loop controls style="width: 100%; height: auto; max-height: 100%;">
+                            <source src="{video_url}" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+
+
+
+
+        # CCTV 피드와 컨트롤 패널 레이아웃 구성'
+        # html 연계 시 copy download link
+        cctv_col1, cctv_col2 = st.columns(2)
+        with cctv_col1:
+            create_cctv_block(1, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV1.mp4?_xsrf=2%7Cd90943e7%7C393b8f80a9c011b8033e51ffbe31e2d9%7C1704793804')
+        with cctv_col2:
+            create_cctv_block(2, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV2.mp4?_xsrf=2%7Cd90943e7%7C393b8f80a9c011b8033e51ffbe31e2d9%7C1704793804')
+
+
+        # 두 번째 행의 CCTV 피드들
+        # html 연계 시 copy download link
+        cctv_col3, cctv_col4 = st.columns(2)
+        with cctv_col3:
+            create_cctv_block(3, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV3.mp4?_xsrf=2%7Cd90943e7%7C393b8f80a9c011b8033e51ffbe31e2d9%7C1704793804')
+        with cctv_col4:
+            create_cctv_block(4, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV4.mp4?_xsrf=2%7Cd90943e7%7C393b8f80a9c011b8033e51ffbe31e2d9%7C1704793804')
+
+
+        
+################################################################
+#################################################################
+################################################################
+#################################################################
+
+#with tab3:
+else:   
+
+    st.markdown(
+        """
+        <style>
+        .stApp {
+            background-color: #333333;
+        }
+        /* Remove padding and margin from the main block */
+        .block-container {
+                padding-top: 1rem; /* 위에 패딩 */
+                padding-right: 1rem; /* 오른쪽 패딩 */
+                padding-left: 1rem; /* 왼쪽 패딩 */
+                padding-bottom: 1rem; /* 아래 패딩 */
+            }
+
+            /* 스트림릿의 칼럼 사이 간격 조정 */
+            .st-cx {
+                margin: 0; /* 외부 여백 제거 */
+            }
+
+            /* 칼럼 내부의 패딩 조정 */
+            .st-cc {
+                padding:0.5rem; /* 좌우 패딩 */
+            }
+            .st-de { 
+                margin-left: 0px; 
+                margin-right: 0px; 
+            }
+            /* 칼럼 내부의 패딩 조정 */
+            .st-cy {
+                padding: 8px; /* 상하좌우 패딩을 8px로 설정 */
+            }
+        </style>
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+
+    # def display_fullscreen_alert():
+    #     # 경고창을 위한 컨테이너 생성
+    #     alert_container = st.empty()
+
+    #     # 경고 메시지 표시
+    #     with alert_container:
+    #         st.markdown(
+    #             """
+    #             <style>
+    #             .overlay {
+    #                 position: fixed;
+    #                 display: flex;
+    #                 justify-content: center;
+    #                 align-items: center;
+    #                 top: 0;
+    #                 left: 0;
+    #                 right: 0;
+    #                 bottom: 0;
+    #                 background-color: rgba(0,0,0,0.5);
+    #                 z-index: 999;
+    #                 animation: blinker 3s linear 3;
+    #             }
+    #             @keyframes blinker {
+    #                 50% { opacity: 0; }
+    #             }
+    #             .alert-box {
+    #                 background-color: #ffcc00;
+    #                 color: black;
+    #                 padding: 20px;
+    #                 border-radius: 5px;
+    #                 box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    #                 text-align: center;
+    #                 max-width: 500px;
+    #             }
+    #             </style>
+    #             <div class="overlay">
+    #                 <div class="alert-box">
+    #                     <strong>경고:</strong> 주의가 필요한 상황이 감지되었습니다.
+    #                 </div>
+    #             </div>
+    #             """,
+    #             unsafe_allow_html=True
+    #         )
+    #     time.sleep(7)  # 7초간 대기
+    #     alert_container.empty()  # 경고창 컨테이너 비우기
+
+
+
+    # 상단바 스타일과 컴포넌트 정의
+    st.markdown("""
+
+    <style>
+
+    .header {
+        background-color:black;
+        color: white;
+        padding: 10px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .logo {
+        flex-grow: 2;
+        display: flex;
+        align-items: center;
+    }
+    .logo > img {
+        margin-right: 20px;
+    }
+
+    .logo-text {
+        display: flex;
+        align-items: center;
+        font-size: 24px; /* 텍스트 크기 증가 */
+        font-weight: bold;
+        margin-right: 20px; /* 오른쪽 여백 추가 */
+        color : #eeeeee;
+    }
+
+    .search-box {
+        display: flex;
+        justify-content: right;
+    }
+
+    .search-input {
+        background-color: #999999; /* 검색창 배경색 */
+        color: white; /* 검색창 텍스트 색상 */
+        margin: 0px 10px;
+        padding: 10px 15px; /* 검색창 내부 패딩 */
+        border-radius: 20px; /* 검색창 라운드 값 */
+        border: 1px solid #004165; /* 검색창 테두리 색상 */
+        outline: none; /* 클릭 시 발생하는 아웃라인 제거 */
+    }
+    .search-input::placeholder {
+        color: white; /* 플레이스홀더 텍스트 색상을 흰색으로 설정 */
+        opacity: 1; /* 플레이스홀더 텍스트의 불투명도를 100%로 설정 */
+    }
+    .notifications {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-left: 20px; /* 왼쪽 여백 추가 */
+        font-size: 12px;
+    }
+    .clock {
+        display: flex;
+        align-items: center;
+        margin-left: 20px; /* 왼쪽 여백 추가 */
+        font-size: 18px;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # 상단바 컴포넌트
+    st.markdown("""
+    <div class="header">
+        <div class="logo">
+            <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?_xsrf=2%7Ce9d7a21b%7C50c7ca14a3dd56ebb3a431afcbbaa867%7C1704802869" height="40"/>
+            <div class="logo-text">CCTV</div>
+        </div>
+        <div class="search-box">
+            <input class="search-input" type="text" placeholder="🔍 차량 번호 입력" />
+            <input class="search-input" type="text" placeholder="🔍 노선, 정류장 입력" />
+        </div>
+        <div class="notifications">
+            🔔 이벤트 12건
+        </div>
+        <div class="clock" id="clock">
+            <!-- 시간 표시 -->
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+
+    #------------------------------------------------------------------------------------------------
+
     # 하단 CCTV 피드
     slider_spacing = "3px"
     # 스타일 정의
@@ -1784,7 +1740,7 @@ with tab3:
                 width: 100%;
                 height: auto;
             }
-            
+
             /* 제목 글자 크기를 조정합니다. */
             .stSubheader, .stMarkdown {
                 font-size: 10px !important;
@@ -1814,14 +1770,14 @@ with tab3:
             .cctv-controls div {
                 margin-bottom: 10px; /* 각 컨트롤 요소의 하단 여백 */
             }
-    
+
             .cctv-controls label {
                 display: block; /* 라벨을 블록 요소로 만들어 줄 바꿈 */
                 color: white;
                 font-size: 14px; /* 라벨의 글자 크기 */
                 margin-bottom: 5px; /* 라벨과 슬라이더 사이의 여백 */
             }
-    
+
             .cctv-controls input[type=range] {
                 width: 100%; /* 슬라이더의 길이 */
             }
@@ -1829,7 +1785,7 @@ with tab3:
     """,
         unsafe_allow_html=True
     )
-    
+
     # 각 CCTV 블록을 만드는 함수
     st.markdown(f"""
         <div class="cctv-container">
@@ -1851,17 +1807,14 @@ with tab3:
             <div class="cctv-feed">
                 <h2 style="font-size: 18px; margin-bottom: 5px; color: white;">CCTV Feed</h2>
                 <video autoplay loop controls style="width: 100%; height: auto; max-height: 100%;">
-                    <source src="http://localhost:8888/files/BigProject/video2.mp4?_xsrf=2%7C94e38a89%7Cd953ccc0810b1abf05adc57d582ec832%7C1704250384" type="video/mp4">
+                    <source src="http://localhost:8888/files/BigProject/bigproject_dashboard/video2.mp4?_xsrf=2%7C9c1195d2%7C757c1df7b8ecc23745d841df416c8be4%7C1704800877" type="video/mp4">
                 </video>
             </div>
         </div>
         """, unsafe_allow_html=True)
-    
-    time.sleep(10)
-    display_fullscreen_alert()
 
-
-        
+    # time.sleep(10)
+    # display_fullscreen_alert()   
         
         
         
