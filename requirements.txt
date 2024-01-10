@@ -67,3 +67,4 @@ XlsxWriter==3.0.1
 plotly==5.3.1
 streamlit
 TabBar
+
