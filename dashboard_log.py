@@ -1,10 +1,11 @@
+
 import streamlit as st
 import pydeck as pdk
 import numpy as np
 import pandas as pd
 import time
 from datetime import datetime, timedelta
-from st_tabs import TabBar
+#from st_tabs import TabBar
 
 
 st.set_page_config(layout="wide")
@@ -13,10 +14,30 @@ for i in range(3):
     st.columns(1)
 
 component1=  TabBar(tabs=['메인화면','CCTV','CCTV화면'],default=0,background = "#000000",color="#FFFFFF",activeColor="blue",fontSize="15px")
-#tab1,tab2,tab3 = st.tabs(['메인화면','CCTV','CCTV화면'])
+#tab1,tab2,tab3 = st.tabs(['메인화면','CCTV','분석'])
 #with tab1:
 if (component1 == 0):
+#     st.markdown("""
+#     <style>
     
+#         .stTabs [data-baseweb="tab-list"] {
+#             gap: 5px;
+#         }
+    
+#         .stTabs [data-baseweb="tab"] {
+#             height: 50px;
+#             margin : 0px;
+#             font-color : #000000;
+#             background-color: #333333;
+#         }
+    
+#         .stTabs [aria-selected="true"] {
+#             background-color: #FFFFFF;
+#         }
+
+#     </style>""", unsafe_allow_html=True)
+
+
     def load_cctv_content():
 
         st.markdown(
@@ -1794,9 +1815,5 @@ else:
 
     # time.sleep(10)
     # display_fullscreen_alert()   
-        
-        
-        
-        
         
         
