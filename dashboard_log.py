@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pydeck as pdk
 import numpy as np
@@ -7,16 +6,17 @@ import time
 from datetime import datetime, timedelta
 from st_tabs import TabBar
 
+
 st.set_page_config(layout="wide")
 
 for i in range(3):
     st.columns(1)
 
-component1=  TabBar(tabs=['메인화면','CCTV','기상상태'],default=0,background = "#000000",color="#FFFFFF",
+component1=  TabBar(tabs=['메인화면','CCTV','CCTV화면'],default=0,background = "#000000",color="#FFFFFF",
                     activeColor="blue",fontSize="15px")
-
-#with tab1:
-if (component1 == 0):
+tab1,tab2,tab3 = tabs=['메인화면','CCTV','CCTV화면']
+with tab1:
+#if (component1 == 0):
 #     st.markdown("""
 #     <style>
     
@@ -1172,8 +1172,8 @@ if (component1 == 0):
 ########################################################################################
 ########################################################################################
 
-elif (component1 == 1):
-
+#elif (component1 == 1):
+with tab2:
     st.markdown(
         """
         <style>
@@ -1538,8 +1538,8 @@ elif (component1 == 1):
 ################################################################
 #################################################################
 
-#with tab3:
-else:   
+with tab3:
+#else:   
 
     st.markdown(
         """
