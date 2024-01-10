@@ -89,4 +89,4 @@ webencodings==0.5.1
 widgetsnbextension==3.5.1
 XlsxWriter==3.0.1
 plotly==5.3.1
-st-tabs
+st_tabs
