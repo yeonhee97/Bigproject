@@ -1,4 +1,3 @@
-%%writefile dashboard_log.py
 
 import streamlit as st
 import pydeck as pdk
@@ -10,9 +9,10 @@ from st_tabs import TabBar
 
 st.set_page_config(layout="wide")
 
-col1 = st.columns(1)
-col2 = st.columns(1)
-component1=  TabBar(tabs=['메인화면','작업현황','기상상태'],default=0,background = "#000000",color="#FFFFFF",
+for i in range(3):
+    st.columns(1)
+
+component1=  TabBar(tabs=['메인화면','CCTV','기상상태'],default=0,background = "#000000",color="#FFFFFF",
                     activeColor="blue",fontSize="15px")
 
 #with tab1:
