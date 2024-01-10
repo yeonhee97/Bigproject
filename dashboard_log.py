@@ -16,27 +16,7 @@ component1=  TabBar(tabs=['메인화면','CCTV','CCTV화면'],default=0,backgrou
 #tab1,tab2,tab3 = st.tabs(['메인화면','CCTV','CCTV화면'])
 #with tab1:
 if (component1 == 0):
-    st.markdown("""
-    <style>
     
-        .stTabs [data-baseweb="tab-list"] {
-            gap: 5px;
-        }
-    
-        .stTabs [data-baseweb="tab"] {
-            height: 50px;
-            margin : 0px;
-            font-color : #000000;
-            background-color: #F0F2F6;
-        }
-    
-        .stTabs [aria-selected="true"] {
-            background-color: #FFFFFF;
-        }
-
-    </style>""", unsafe_allow_html=True)
-
-
     def load_cctv_content():
 
         st.markdown(
