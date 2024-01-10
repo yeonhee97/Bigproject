@@ -1,11 +1,10 @@
-
 import streamlit as st
 import pydeck as pdk
 import numpy as np
 import pandas as pd
 import time
 from datetime import datetime, timedelta
-#from st_tabs import TabBar
+from st_tabs import TabBar
 
 
 st.set_page_config(layout="wide")
