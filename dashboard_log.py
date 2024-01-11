@@ -324,7 +324,7 @@ if (component1 == 0):
     st.markdown("""
         <div class="header">
             <div class="logo">
-                <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?_xsrf=2%7Cd3664c29%7C327bdf892b15e2ab5722f8f18c538940%7C1704906402" height="40"/>
+                <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?raw=true" height="40"/>
                 <div class="logo-text">수도권 철도 차량기지 관제센터</div>
             </div>
             <div class="search-box">
