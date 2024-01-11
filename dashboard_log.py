@@ -486,7 +486,7 @@ if (component1 == 0):
                 <div class="train-section">
                     <div class="train-title">접근차량</div>
                     <div class="train-number">열차 번호: KTX-133</div>
-                    <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EA%B8%B0%EC%B0%A8%EC%B5%9C%EC%A2%85.png?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306" alt="Train Image" style="width: 100%; height: auto; border-radius: 5px; margin-top: 10px;"/> <!-- 이미지 경로 확인 필요 -->
+                    <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EA%B8%B0%EC%B0%A8%EC%B5%9C%EC%A2%85.png?raw=true" alt="Train Image" style="width: 100%; height: auto; border-radius: 5px; margin-top: 10px;"/> <!-- 이미지 경로 확인 필요 -->
                 </div>
                 """, unsafe_allow_html=True)
                 
@@ -936,7 +936,7 @@ if (component1 == 0):
                             <div class="card-subtitle">예상 소요 시간 |</div>
                             <div class="card-subtitle">2024.01.12 13:00 - 15:30</div>
                         </div>
-                        <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EC%84%A0%EB%A1%9C.png?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306" alt="Icon" class="card-icon">
+                        <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EC%84%A0%EB%A1%9C.png?raw=true" alt="Icon" class="card-icon">
                     </div>
                     <!-- 두 번째 카드 -->
                     <div class="card">
@@ -945,7 +945,7 @@ if (component1 == 0):
                             <div class="card-subtitle">예상 소요 시간 |</div>
                             <div class="card-subtitle">2024.01.12 17:00 - 19:00</div>
                         </div>
-                        <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EC%A0%84%EA%B8%B0.png?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306" alt="Icon" class="card-icon">
+                        <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EC%A0%84%EA%B8%B0.png?raw=true" alt="Icon" class="card-icon">
                     </div>
                     <!-- 세 번째 카드 -->
                     <div class="card">
@@ -954,7 +954,7 @@ if (component1 == 0):
                             <div class="card-subtitle">예상 소요 시간 |</div>
                             <div class="card-subtitle">2024.01.12 19:30 - 21:30</div>
                         </div>
-                        <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EC%B0%A8%EB%9F%89.png?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306" alt="Icon" class="card-icon">
+                        <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EC%B0%A8%EB%9F%89.png?raw=true" alt="Icon" class="card-icon">
                     </div>
                 </div>
                 """, unsafe_allow_html=True)
@@ -1231,9 +1231,9 @@ elif (component1 == 1):
     # html 연계 시 copy download link
     cctv_col3, cctv_col4 = st.columns(2)
     with cctv_col3:
-        create_cctv_block(3, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV3.mp4?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306')
+        create_cctv_block(3, 'https://github.com/yeonhee97/Bigproject/raw/main/bigproject_dashboard/CCTV3.mp4')
     with cctv_col4:
-        create_cctv_block(4, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV4.mp4?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306')
+        create_cctv_block(4, 'https://github.com/yeonhee97/Bigproject/raw/main/bigproject_dashboard/CCTV4.mp4')
     
     
 ################################################################
