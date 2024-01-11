@@ -325,7 +325,7 @@ if (component1 == 0):
     st.markdown("""
         <div class="header">
             <div class="logo">
-                <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?_xsrf=2%7Cd3664c29%7C327bdf892b15e2ab5722f8f18c538940%7C1704906402" height="40"/>
+                <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?raw=true" height="40"/>
                 <div class="logo-text">수도권 철도 차량기지 관제센터</div>
             </div>
             <div class="search-box">
@@ -474,7 +474,7 @@ if (component1 == 0):
                 <div class="train-section">
                     <div class="train-title">접근차량</div>
                     <div class="train-number">열차 번호: KTX-133</div>
-                    <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EA%B8%B0%EC%B0%A8%EC%B5%9C%EC%A2%85.png?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306" alt="Train Image" style="width: 100%; height: auto; border-radius: 5px; margin-top: 10px;"/> <!-- 이미지 경로 확인 필요 -->
+                    <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EA%B8%B0%EC%B0%A8%EC%B5%9C%EC%A2%85.png?raw=true" alt="Train Image" style="width: 100%; height: auto; border-radius: 5px; margin-top: 10px;"/> <!-- 이미지 경로 확인 필요 -->
                 </div>
                 """, unsafe_allow_html=True)
                 
@@ -881,7 +881,7 @@ if (component1 == 0):
                             <div class="card-subtitle">예상 소요 시간 |</div>
                             <div class="card-subtitle">2024.01.12 13:00 - 15:30</div>
                         </div>
-                        <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EC%84%A0%EB%A1%9C.png?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306" alt="Icon" class="card-icon">
+                        <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EC%84%A0%EB%A1%9C.png?raw=true" alt="Icon" class="card-icon">
                     </div>
                     <!-- 두 번째 카드 -->
                     <div class="card">
@@ -890,7 +890,7 @@ if (component1 == 0):
                             <div class="card-subtitle">예상 소요 시간 |</div>
                             <div class="card-subtitle">2024.01.12 17:00 - 19:00</div>
                         </div>
-                        <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EC%A0%84%EA%B8%B0.png?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306" alt="Icon" class="card-icon">
+                        <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EC%A0%84%EA%B8%B0.png?raw=true" alt="Icon" class="card-icon">
                     </div>
                     <!-- 세 번째 카드 -->
                     <div class="card">
@@ -899,7 +899,7 @@ if (component1 == 0):
                             <div class="card-subtitle">예상 소요 시간 |</div>
                             <div class="card-subtitle">2024.01.12 19:30 - 21:30</div>
                         </div>
-                        <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EC%B0%A8%EB%9F%89.png?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306" alt="Icon" class="card-icon">
+                        <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EC%B0%A8%EB%9F%89.png?raw=true" alt="Icon" class="card-icon">
                     </div>
                 </div>
                 """, unsafe_allow_html=True)
@@ -1058,7 +1058,7 @@ elif (component1 == 1):
     st.markdown("""
         <div class="header">
             <div class="logo">
-                <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?_xsrf=2%7Cd3664c29%7C327bdf892b15e2ab5722f8f18c538940%7C1704906402" height="40"/>
+                <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?raw=true" height="40"/>
                 <div class="logo-text">CCTV1</div>
             </div>
             <div class="search-box">
@@ -1239,16 +1239,16 @@ elif (component1 == 1):
     # html 연계 시 copy download link
     cctv_col1, cctv_col2 = st.columns(2)
     with cctv_col1:
-        create_cctv_block(1, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV1.mp4?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306')
+        create_cctv_block(1, 'https://github.com/yeonhee97/Bigproject/raw/main/bigproject_dashboard/CCTV1.mp4')
     with cctv_col2:
-        create_cctv_block(2, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV2.mp4?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306')
+        create_cctv_block(2, 'https://github.com/yeonhee97/Bigproject/raw/main/bigproject_dashboard/CCTV2.mp4')
     # 두 번째 행의 CCTV 피드들
     # html 연계 시 copy download link
     cctv_col3, cctv_col4 = st.columns(2)
     with cctv_col3:
-        create_cctv_block(3, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV3.mp4?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306')
+        create_cctv_block(3, 'https://github.com/yeonhee97/Bigproject/raw/main/bigproject_dashboard/CCTV3.mp4')
     with cctv_col4:
-        create_cctv_block(4, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV4.mp4?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306')
+        create_cctv_block(4, 'https://github.com/yeonhee97/Bigproject/raw/main/bigproject_dashboard/CCTV4.mp4')
     
     
 ################################################################
@@ -1331,7 +1331,7 @@ elif (component1 == 2):
     st.markdown("""
         <div class="header">
             <div class="logo">
-                <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?_xsrf=2%7Cd3664c29%7C327bdf892b15e2ab5722f8f18c538940%7C1704906402" height="40"/>
+                <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?raw=true" height="40"/>
                 <div class="logo-text">CCTV2</div>
             </div>
             <div class="search-box">
@@ -1442,7 +1442,7 @@ elif (component1 == 2):
             <div class="cctv-feed">
                 <h2 style="font-size: 18px; margin-bottom: 5px; color: white;">CCTV Feed</h2>
                 <video autoplay loop controls style="width: 100%; height: auto; max-height: 100%;">
-                    <source src="http://localhost:8888/files/BigProject/bigproject_dashboard/video2.mp4?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306" type="video/mp4">
+                    <source src="https://github.com/yeonhee97/Bigproject/raw/main/bigproject_dashboard/video2.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -1531,7 +1531,7 @@ else:
     st.markdown("""
         <div class="header">
             <div class="logo">
-                <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?_xsrf=2%7Cd3664c29%7C327bdf892b15e2ab5722f8f18c538940%7C1704906402" height="40"/>
+                <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?raw=true" height="40"/>
                 <div class="logo-text">통계</div>
             </div>
             <div class="search-box">
