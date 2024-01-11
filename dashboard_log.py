@@ -959,10 +959,76 @@ if (component1 == 0):
                 </div>
                 """, unsafe_allow_html=True)
         # ----------------------------------------------------------------------------------------------------------------
+    st.markdown("""
+                <style>
+                    .trainmove-container {
+                        background-color: #555555; /* 섹션 배경색 */
+                        padding: 5px; /* 내부 여백 */
+                        margin-bottom: 3px; /* 다음 콘텐츠와의 간격 */
+                        margin-right: 0px;
+                        color: white; /* 텍스트 색상 */
+                    }
+                    .trainmove-title {
+                        font-weight: bold; /* 굵은 글씨 */
+                        text-align: center;
+                        margin-bottom: 3px; /* 다음 콘텐츠와의 간격 */
+                        color: white; /* 텍스트 색상 */
+                        font-size: 13px; 
+                    }
+                </style>
+                    """, unsafe_allow_html=True)
+    with col_time:
+        time_box = st.empty()
+           
+    
+    with col_speed:
+        speed_box = st.empty()
+        
+      
+    with col_loc:
+        loc_box = st.empty()                
+        
+        
+    sec_now = 1800
+    
+    while True:
+                
+        random_number = random.randint(275, 285)  # 랜덤 숫자 생성
+        minute = sec_now//60
+        second = sec_now % 60
+        
+        with speed_box.container():
+            st.markdown(f"""
+                     <div class='trainmove-container'>
+                         <div class="trainmove-title">현재 속력</div>
+                         <div class="trainmove-title">{random_number}km/h</div>
+                     </div>
+                """, unsafe_allow_html=True)
+            
+        with time_box.container():
+            st.markdown(f"""
+                     <div class='trainmove-container'>
+                         <div class="trainmove-title">남은 시간</div>
+                         <div class='trainmove-title'>{minute}분 {second}초</div>
+                     </div>
+                """, unsafe_allow_html=True)
+            
+        with loc_box.container():
+            st.markdown(f"""
+                     <div class='trainmove-container'>
+                         <div class="trainmove-title">현재 위치</div>
+                         <div class="trainmove-title">광명역</div>
+                     </div>
+                """, unsafe_allow_html=True)
+            
+        sec_now -= 1
+        
+        if sec_now == 1400:
+            break
+        time.sleep(1)
 
 
-
-        update_state()
+    update_state()
 ########################################################################################
 ########################################################################################
 ########################################################################################
