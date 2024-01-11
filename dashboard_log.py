@@ -1043,7 +1043,7 @@ elif (component1 == 1):
     st.markdown("""
         <div class="header">
             <div class="logo">
-                <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?_xsrf=2%7Cd3664c29%7C327bdf892b15e2ab5722f8f18c538940%7C1704906402" height="40"/>
+                <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EA%B8%B0%EC%B0%A8%EC%B5%9C%EC%A2%85.png?raw=true" height="40"/>
                 <div class="logo-text">CCTV1</div>
             </div>
             <div class="search-box">
@@ -1224,9 +1224,9 @@ elif (component1 == 1):
     # html 연계 시 copy download link
     cctv_col1, cctv_col2 = st.columns(2)
     with cctv_col1:
-        create_cctv_block(1, 'https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/CCTV1.mp4')
+        create_cctv_block(1, 'https://github.com/yeonhee97/Bigproject/raw/main/bigproject_dashboard/CCTV1.mp4')
     with cctv_col2:
-        create_cctv_block(2, 'https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/CCTV2.mp4')
+        create_cctv_block(2, 'https://github.com/yeonhee97/Bigproject/raw/main/bigproject_dashboard/CCTV2.mp4')
     # 두 번째 행의 CCTV 피드들
     # html 연계 시 copy download link
     cctv_col3, cctv_col4 = st.columns(2)
@@ -1316,7 +1316,7 @@ elif (component1 == 2):
     st.markdown("""
         <div class="header">
             <div class="logo">
-                <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?_xsrf=2%7Cd3664c29%7C327bdf892b15e2ab5722f8f18c538940%7C1704906402" height="40"/>
+                <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EA%B8%B0%EC%B0%A8%EC%B5%9C%EC%A2%85.png?raw=true" height="40"/>
                 <div class="logo-text">CCTV2</div>
             </div>
             <div class="search-box">
@@ -1427,7 +1427,7 @@ elif (component1 == 2):
             <div class="cctv-feed">
                 <h2 style="font-size: 18px; margin-bottom: 5px; color: white;">CCTV Feed</h2>
                 <video autoplay loop controls style="width: 100%; height: auto; max-height: 100%;">
-                    <source src="http://localhost:8888/files/BigProject/bigproject_dashboard/video2.mp4?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306" type="video/mp4">
+                    <source src="https://github.com/yeonhee97/Bigproject/raw/main/bigproject_dashboard/video2.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
