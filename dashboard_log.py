@@ -1583,7 +1583,7 @@ else:
         </style>
 
         <div class="weather-section">
-            <div class="weather-title">역 선택</div>
+            <div class="weather-title" style="text-align:center">역 선택</div>
            
            
         </div>
@@ -1650,7 +1650,7 @@ else:
            '호계효문', '호구포', '홍성신성', '화명', '화명구포', '화본', '화산', '화서', '화순',
            '화순능주', '화전', '화정', '황간', '황간영동', '황등', '회기', '회기청량리', '회룡', '횡성',
            '횡천', '효문', '효자', '효자괴동', '효자부조', '흑석리'))
-        show_dataframe_2 = st.button(station + '역 ' + '사고 데이터')
+        show_dataframe_2 = st.button(station + '역 ' + '사고 데이터',use_container_width=True)
     with col2:
         with st.container():
 
@@ -1673,7 +1673,7 @@ else:
         </style>
 
         <div class="weather-section">
-            <div class="weather-title">연도별 작업자사고발생수</div>
+            <div class="weather-title" style="text-align:center">연도별 작업자사고발생수</div>
            
            
         </div>
@@ -1722,7 +1722,7 @@ else:
         </style>
 
         <div class="weather-section">
-            <div class="weather-title">작업자사고원인별 사고발생수</div>
+            <div class="weather-title" style="text-align:center">작업자사고원인별 사고발생수</div>
            
            
         </div>
@@ -1831,7 +1831,7 @@ else:
 
     with col4:
         year = st.selectbox('', (2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010))
-        show_dataframe_5 = st.button(station + '역 ' + '사고 데이터' + '(' + str(year) + '년' + ')')
+        show_dataframe_5 = st.button(station + '역 ' + '사고 데이터' + '(' + str(year) + '년' + ')',use_container_width=True)
          
 
 
