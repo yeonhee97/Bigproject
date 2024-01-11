@@ -1548,7 +1548,7 @@ else:
         """, unsafe_allow_html=True)
     
     
-    data = pd.read_csv('BigProject/Ver3_df10222.csv', encoding='utf-8')
+    data = pd.read_csv('https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/Ver3_df1022.csv', encoding='utf-8')
     data['건수'] = 1
     months = []
     for i in data['일시'].values:
