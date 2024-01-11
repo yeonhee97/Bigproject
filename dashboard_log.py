@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pydeck as pdk
 import numpy as np
@@ -8,6 +7,7 @@ from datetime import datetime, timedelta
 from st_tabs import TabBar
 import plotly.express as px
 import random
+
 st.set_page_config(layout="wide")
 
 for i in range(2):
@@ -16,6 +16,7 @@ for i in range(2):
 component1=  TabBar(tabs=['메인화면','CCTV','CCTV화면','분석'],default=0,background = "#000000",color="#FFFFFF",
                     activeColor="#005BAC",fontSize="15px")
 
+    
 def display():
     st.markdown(
         """
@@ -324,7 +325,7 @@ if (component1 == 0):
     st.markdown("""
         <div class="header">
             <div class="logo">
-                <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?raw=true" height="40"/>
+                <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?_xsrf=2%7Cd3664c29%7C327bdf892b15e2ab5722f8f18c538940%7C1704906402" height="40"/>
                 <div class="logo-text">수도권 철도 차량기지 관제센터</div>
             </div>
             <div class="search-box">
@@ -431,20 +432,7 @@ if (component1 == 0):
             </div>
                 """, unsafe_allow_html=True)
         # ----------------------------------------------------------------------------------------------------------------
-                # speed_box =  st.empty()
-                # time_box =  st.empty()
-                # sec_now = 
-                # while True:        
-                #     random_number = random.randint(275, 285)  # 랜덤 숫자 생성
-                #     speed_box.text(f'{random_number}km/h')  # 박스에 숫자 출력
-                #     minute = sec_now//60
-                #     second = sec_now % 60
-                #     time_box.text(f'{minute}분 {second}초')
-                #     sec_now -= 1
-                #     if sec_now == 839:
-                #         break
-                #     time.sleep(1)
-        
+                       
                 
                 st.markdown("""
                 <style>
@@ -486,56 +474,13 @@ if (component1 == 0):
                 <div class="train-section">
                     <div class="train-title">접근차량</div>
                     <div class="train-number">열차 번호: KTX-133</div>
-                    <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EA%B8%B0%EC%B0%A8%EC%B5%9C%EC%A2%85.png?raw=true" alt="Train Image" style="width: 100%; height: auto; border-radius: 5px; margin-top: 10px;"/> <!-- 이미지 경로 확인 필요 -->
+                    <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EA%B8%B0%EC%B0%A8%EC%B5%9C%EC%A2%85.png?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306" alt="Train Image" style="width: 100%; height: auto; border-radius: 5px; margin-top: 10px;"/> <!-- 이미지 경로 확인 필요 -->
                 </div>
                 """, unsafe_allow_html=True)
                 
-                st.markdown("""
-                <style>
-                .train-section {
-                    background-color: #555555; /* 연한 회색 */
-                    padding: 10px; /* 안쪽 여백 */
-                    margin-bottom: 3px; /* 아래쪽 여백 */
-                    display: block; /* 블록 레벨 요소 */
-                }
-                .train-title {
-                    font-weight: bold; /* 굵은 글씨 */
-                    color : #ffffff;
-                    font-size: 17px; /* 제목 크기 */
-                    margin-bottom: 8px; /* 제목 아래 여백 */
-                    display: block; /* 블록 레벨 요소 */
-                }
-                .train-metrics {
-                    display: flex; /* 가로 정렬 */
-                    justify-content: space-around; /* 요소를 공간에 균등하게 분배 */
-                }
-                .metric {
-                    text-align: center; /* 가운데 정렬 */
-                }
-                .metric-title {
-                    font-weight: bold; /* 굵은 글씨 */
-                    margin-bottom: 5px; /* 아래쪽 여백 */
-                    color :#ffffff;
-                    font-size: 13px;
-                }
-                .metric-value {
-                    font-size: 15px; /* 크기 조정 */
-                    color :#ffffff;
-                }
-                .train-number {
-                    color: #ffffff; /* 흰색 글씨 */
-                    font-size: 15px;
-                }
-                </style>
-                <div class="train-section">
-                <div class="train-title">남은 시간  현재속력  현재 위치</div>
-                    """, unsafe_allow_html=True)
-                
-                # col_t, col_s,col_l = st.columns(3)
-                # with col_t:
-                #     time_box.text(f'{minute}분 {second}초')
-                # with col_s:
-                #     speed_box.text(f'{random_number}km/h')
+                            
+                col_time, col_speed, col_loc = st.columns(3)
+                ######################################
                 
         # ----------------------------------------------------------------------------------------------------------------        
                
@@ -936,7 +881,7 @@ if (component1 == 0):
                             <div class="card-subtitle">예상 소요 시간 |</div>
                             <div class="card-subtitle">2024.01.12 13:00 - 15:30</div>
                         </div>
-                        <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EC%84%A0%EB%A1%9C.png?raw=true" alt="Icon" class="card-icon">
+                        <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EC%84%A0%EB%A1%9C.png?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306" alt="Icon" class="card-icon">
                     </div>
                     <!-- 두 번째 카드 -->
                     <div class="card">
@@ -945,7 +890,7 @@ if (component1 == 0):
                             <div class="card-subtitle">예상 소요 시간 |</div>
                             <div class="card-subtitle">2024.01.12 17:00 - 19:00</div>
                         </div>
-                        <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EC%A0%84%EA%B8%B0.png?raw=true" alt="Icon" class="card-icon">
+                        <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EC%A0%84%EA%B8%B0.png?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306" alt="Icon" class="card-icon">
                     </div>
                     <!-- 세 번째 카드 -->
                     <div class="card">
@@ -954,10 +899,14 @@ if (component1 == 0):
                             <div class="card-subtitle">예상 소요 시간 |</div>
                             <div class="card-subtitle">2024.01.12 19:30 - 21:30</div>
                         </div>
-                        <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EC%B0%A8%EB%9F%89.png?raw=true" alt="Icon" class="card-icon">
+                        <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EC%B0%A8%EB%9F%89.png?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306" alt="Icon" class="card-icon">
                     </div>
                 </div>
                 """, unsafe_allow_html=True)
+        # ----------------------------------------------------------------------------------------------------------------
+        # ----------------------------------------------------------------------------------------------------------------
+        # ----------------------------------------------------------------------------------------------------------------
+        # ----------------------------------------------------------------------------------------------------------------
         # ----------------------------------------------------------------------------------------------------------------
     st.markdown("""
                 <style>
@@ -1109,7 +1058,7 @@ elif (component1 == 1):
     st.markdown("""
         <div class="header">
             <div class="logo">
-                <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EA%B8%B0%EC%B0%A8%EC%B5%9C%EC%A2%85.png?raw=true" height="40"/>
+                <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?_xsrf=2%7Cd3664c29%7C327bdf892b15e2ab5722f8f18c538940%7C1704906402" height="40"/>
                 <div class="logo-text">CCTV1</div>
             </div>
             <div class="search-box">
@@ -1290,16 +1239,16 @@ elif (component1 == 1):
     # html 연계 시 copy download link
     cctv_col1, cctv_col2 = st.columns(2)
     with cctv_col1:
-        create_cctv_block(1, 'https://github.com/yeonhee97/Bigproject/raw/main/bigproject_dashboard/CCTV1.mp4')
+        create_cctv_block(1, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV1.mp4?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306')
     with cctv_col2:
-        create_cctv_block(2, 'https://github.com/yeonhee97/Bigproject/raw/main/bigproject_dashboard/CCTV2.mp4')
+        create_cctv_block(2, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV2.mp4?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306')
     # 두 번째 행의 CCTV 피드들
     # html 연계 시 copy download link
     cctv_col3, cctv_col4 = st.columns(2)
     with cctv_col3:
-        create_cctv_block(3, 'https://github.com/yeonhee97/Bigproject/raw/main/bigproject_dashboard/CCTV3.mp4')
+        create_cctv_block(3, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV3.mp4?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306')
     with cctv_col4:
-        create_cctv_block(4, 'https://github.com/yeonhee97/Bigproject/raw/main/bigproject_dashboard/CCTV4.mp4')
+        create_cctv_block(4, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV4.mp4?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306')
     
     
 ################################################################
@@ -1382,7 +1331,7 @@ elif (component1 == 2):
     st.markdown("""
         <div class="header">
             <div class="logo">
-                <img src="https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/%EA%B8%B0%EC%B0%A8%EC%B5%9C%EC%A2%85.png?raw=true" height="40"/>
+                <img src="http://localhost:8888/files/BigProject/bigproject_dashboard/%EB%A1%9C%EA%B3%A0.png?_xsrf=2%7Cd3664c29%7C327bdf892b15e2ab5722f8f18c538940%7C1704906402" height="40"/>
                 <div class="logo-text">CCTV2</div>
             </div>
             <div class="search-box">
@@ -1493,7 +1442,7 @@ elif (component1 == 2):
             <div class="cctv-feed">
                 <h2 style="font-size: 18px; margin-bottom: 5px; color: white;">CCTV Feed</h2>
                 <video autoplay loop controls style="width: 100%; height: auto; max-height: 100%;">
-                    <source src="https://github.com/yeonhee97/Bigproject/raw/main/bigproject_dashboard/video2.mp4" type="video/mp4">
+                    <source src="http://localhost:8888/files/BigProject/bigproject_dashboard/video2.mp4?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -1925,5 +1874,6 @@ else:
     if show_dataframe_5:
         st.dataframe(data_select_5)
 
+sec_now = 900
 
         
