@@ -1224,9 +1224,9 @@ elif (component1 == 1):
     # html 연계 시 copy download link
     cctv_col1, cctv_col2 = st.columns(2)
     with cctv_col1:
-        create_cctv_block(1, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV1.mp4?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306')
+        create_cctv_block(1, 'https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/CCTV1.mp4')
     with cctv_col2:
-        create_cctv_block(2, 'http://localhost:8888/files/BigProject/bigproject_dashboard/CCTV2.mp4?_xsrf=2%7Cb33aa785%7Cd3cea70bacfd3af651e9a8666ac7420a%7C1704934306')
+        create_cctv_block(2, 'https://github.com/yeonhee97/Bigproject/blob/main/bigproject_dashboard/CCTV2.mp4')
     # 두 번째 행의 CCTV 피드들
     # html 연계 시 copy download link
     cctv_col3, cctv_col4 = st.columns(2)
