@@ -377,3 +377,4 @@ zict==3.0.0
 zipp==3.17.0
 zope.interface==5.4.0
 zstandard==0.19.0
+configparser>=3.5.0
