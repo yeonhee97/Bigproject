@@ -52,7 +52,6 @@ conda-build
 conda-pack
 conda-package-handling
 conda_package_streaming
-conda-repo-cli
 conda-token
 conda-verify
 constantly==23.10.4
