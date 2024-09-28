@@ -48,7 +48,6 @@ clyent
 colorama==0.4.6
 colorcet==3.0.1
 comm==0.1.2
-conda==24.1.2
 conda-build==24.1.2
 conda-content-trust==0.2.0
 conda_index==0.4.0
