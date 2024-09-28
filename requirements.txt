@@ -49,7 +49,6 @@ colorama==0.4.6
 colorcet==3.0.1
 comm==0.1.2
 conda-build
-conda-content-trust
 conda_index
 conda-libmamba-solver
 conda-pack
