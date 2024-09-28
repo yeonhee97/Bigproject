@@ -7,7 +7,6 @@ altair==5.0.1
 anaconda-catalogs==0.2.0
 anaconda-client
 anaconda-cloud-auth
-anaconda-navigator
 anaconda-project==0.11.1
 anyio==4.2.0
 appdirs==1.4.4
