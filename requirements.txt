@@ -4,9 +4,9 @@ aioitertools==0.7.1
 aiosignal==1.2.0
 alabaster==0.7.12
 altair==5.0.1
-anaconda
+anaconda-anon-usage==0.4.3
 anaconda-catalogs==0.2.0
-anaconda-client==1.1.1
+anaconda-client==1.12.3
 anaconda-cloud-auth==0.1.4
 anaconda-navigator==2.5.2
 anaconda-project==0.11.1
@@ -213,7 +213,7 @@ patsy==0.5.3
 pexpect==4.8.0
 pickleshare==0.7.5
 pillow==10.2.0
-pip==23.3.1
+pip==24.2
 pkce==1.0.3
 pkginfo==1.9.6
 platformdirs==3.10.0
@@ -377,4 +377,3 @@ zict==3.0.0
 zipp==3.17.0
 zope.interface==5.4.0
 zstandard==0.19.0
-configparser>=3.5.0
